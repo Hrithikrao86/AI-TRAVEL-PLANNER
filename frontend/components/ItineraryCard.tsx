@@ -14,7 +14,7 @@ tripId,
 setTrip
 
 }:any) {
-  const [feedback,setFeedback]=useState("");
+  const [feedbacks,setFeedbacks]=useState<any>({});
 
 const [loadingDay,setLoadingDay]=useState<number|null>(null);
 
@@ -32,7 +32,9 @@ const response=await api.patch(
 
 {
 
-feedback
+feedback:
+
+feedbacks[day]
 
 },
 
@@ -52,7 +54,13 @@ Authorization:
 
 setTrip(response.data);
 
-setFeedback("");
+setFeedbacks({
+
+...feedbacks,
+
+[day]:""
+
+});
 
 }
 
@@ -94,11 +102,21 @@ type="text"
 
 placeholder="Ex: Make this day hiking instead of shopping"
 
-value={feedback}
+value={feedbacks[day.day]||""}
 
 onChange={(e)=>
 
-setFeedback(e.target.value)
+setFeedbacks({
+
+...feedbacks,
+
+[day.day]:
+
+e.target.value
+
+})
+
+}
 
 }
 
