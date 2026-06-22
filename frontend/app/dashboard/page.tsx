@@ -23,7 +23,7 @@ const handleGenerate=async(data:any)=>{
 try{
 
 setLoading(true);
-setSelectedTrip(null);
+
 
 const token=localStorage.getItem("token");
 
