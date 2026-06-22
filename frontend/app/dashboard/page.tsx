@@ -17,11 +17,13 @@ const [selectedTrip,setSelectedTrip]=useState<any>(null);
 
 const [loading,setLoading]=useState(false);
 
+
 const handleGenerate=async(data:any)=>{
 
 try{
 
 setLoading(true);
+setSelectedTrip(null);
 
 const token=localStorage.getItem("token");
 
