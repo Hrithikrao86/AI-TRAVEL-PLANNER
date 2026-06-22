@@ -26,9 +26,7 @@ setLoadingDay(day);
 
 const token=localStorage.getItem("token");
 
-const response=await api.patch(
-
-`/trips/${tripId}/day/${day}`,
+const response=await api.post(`/trips/${tripId}/day/${day}/regenerate`,
 
 {
 
