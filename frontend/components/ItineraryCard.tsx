@@ -4,7 +4,17 @@ import {useState} from "react";
 
 import api from "../utils/api";
 
-const [feedback,setFeedback]=useState("");
+
+export default function ItineraryCard({
+
+itinerary,
+
+tripId,
+
+setTrip
+
+}:any) {
+  const [feedback,setFeedback]=useState("");
 
 const [loadingDay,setLoadingDay]=useState<number|null>(null);
 
@@ -60,15 +70,6 @@ setLoadingDay(null);
 
 }
 
-export default function ItineraryCard({
-
-itinerary,
-
-tripId,
-
-setTrip
-
-}:any) {
   return (
     <div>
       {itinerary.map((day: any, index: number) => (
