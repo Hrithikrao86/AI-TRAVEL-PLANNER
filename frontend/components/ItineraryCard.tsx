@@ -118,7 +118,7 @@ e.target.value
 
 }
 
-}
+
 
 className="flex-1 p-3 rounded-lg bg-slate-700 border border-slate-600"
 
