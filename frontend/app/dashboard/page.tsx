@@ -212,8 +212,15 @@ return (
 {trips.map((trip:any)=>(
 
 <div
+
 key={trip._id}
-className="bg-slate-800 border border-slate-700 rounded-xl px-5 py-3 flex items-center gap-4 hover:border-blue-500"
+
+className={`rounded-xl px-5 py- flex items-center gap-4 transition-all cursor-pointer ${selectedTrip?._id===trip._id?
+"bg-blue-600/20 border-2 border-blue-500 shadow-lg" : "bg-slate-800 border border-slate-700 hover:border-blue-500"
+}
+
+`}
+
 >
 
 <button
