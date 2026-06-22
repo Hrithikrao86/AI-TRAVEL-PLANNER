@@ -286,6 +286,7 @@ itinerary={selectedTrip.itinerary}
 tripId={selectedTrip._id}
 
 setTrip={setSelectedTrip}
+setTrips={setTrips}
 
 />
 

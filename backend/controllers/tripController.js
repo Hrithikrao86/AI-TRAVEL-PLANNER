@@ -453,31 +453,51 @@ message:"Day not found"
 
 const prompt=`
 
-Destination:${trip.destination}
+You are an expert travel planner.
 
-Duration:${trip.durationDays} days
+Destination: ${trip.destination}
 
-Current Day:${JSON.stringify(currentDay)}
+Budget: ${trip.budgetTier}
 
-User Request:${instruction}
+Duration: ${trip.durationDays}
+
+Interests:
+
+${trip.interests.join(", ")}
+
+Current Day ${day}:
+
+${JSON.stringify(trip.itinerary[day-1])}
+
+User wants:
+
+"${feedback}"
 
 IMPORTANT:
 
-Modify ONLY this day.
+Generate a COMPLETELY NEW itinerary for ONLY Day ${day}.
 
-Return ONLY JSON.
+It MUST be different from the current itinerary.
 
-Format:
+Return ONLY JSON:
 
 {
 
-"day":${dayNumber},
+"day":${day},
 
 "theme":"",
 
 "activities":[],
 
-"meals":{}
+"meals":{
+
+"breakfast":"",
+
+"lunch":"",
+
+"dinner":""
+
+}
 
 }
 
