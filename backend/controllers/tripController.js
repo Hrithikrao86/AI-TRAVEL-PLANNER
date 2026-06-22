@@ -465,25 +465,27 @@ Interests:
 
 ${trip.interests.join(", ")}
 
-Current Day ${day}:
+Current Day ${dayNumber}:
 
-${JSON.stringify(trip.itinerary[day-1])}
+${JSON.stringify(currentDay)}
 
 User wants:
 
-"${feedback}"
+"${instruction}"
 
 IMPORTANT:
 
-Generate a COMPLETELY NEW itinerary for ONLY Day ${day}.
+Generate a COMPLETELY NEW itinerary for ONLY Day ${dayNumber}.
 
 It MUST be different from the current itinerary.
 
-Return ONLY JSON:
+Return ONLY JSON.
+
+Format:
 
 {
 
-"day":${day},
+"day":${dayNumber},
 
 "theme":"",
 
@@ -527,13 +529,16 @@ item=>item.day==dayNumber
 
 );
 
-trip.itinerary[dayIndex]
+trip.itinerary[dayIndex]=generatedDay;
 
-=
-
-generatedDay;
+trip.markModified("itinerary");
 
 await trip.save();
+console.log("Instruction:",instruction);
+
+console.log("Old Day:",currentDay);
+
+console.log("Generated Day:",generatedDay);
 
 return res.json(trip);
 

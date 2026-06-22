@@ -28,10 +28,25 @@ const TripSchema = new mongoose.Schema(
         default:[]
     },
 
-    itinerary:{
-        type:Array,
-        default:[]
-    },
+   itinerary:[{
+
+day:Number,
+
+theme:String,
+
+activities:[String],
+
+meals:{
+
+breakfast:String,
+
+lunch:String,
+
+dinner:String
+
+}
+
+}],
 
     hotels:{
         type:Array,
