@@ -92,7 +92,7 @@ setLoadingDay(null);
               <h3 className="text-2xl font-bold">
                 Day {day.day}
               </h3>
-               <div className="flex gap-3 mt-4">
+              <div className="flex flex-col sm:flex-row gap-3 mt-4">
 
 <input
 
@@ -116,9 +116,7 @@ e.target.value
 
 }
 
-
-
-className="flex-1 p-3 rounded-lg bg-slate-700 border border-slate-600"
+className="w-full sm:flex-1 p-3 rounded-lg bg-slate-700 border border-slate-600"
 
 />
 
@@ -130,7 +128,7 @@ regenerateDay(day.day)
 
 }
 
-className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg"
+className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg"
 
 >
 

@@ -207,7 +207,7 @@ return (
 
 </h2>
 
-<div className="flex flex-wrap gap-4">
+<div className="flex flex-wrap gap-3">
 
 {trips.map((trip:any)=>(
 
@@ -215,7 +215,7 @@ return (
 
 key={trip._id}
 
-className={`rounded-xl px-5 py- flex items-center gap-4 transition-all cursor-pointer ${selectedTrip?._id===trip._id?
+className={`rounded-xl px-4 py-2 flex items-center gap-4 transition-all cursor-pointer ${selectedTrip?._id===trip._id?
 "bg-blue-600/20 border-2 border-blue-500 shadow-lg" : "bg-slate-800 border border-slate-700 hover:border-blue-500"
 }
 
