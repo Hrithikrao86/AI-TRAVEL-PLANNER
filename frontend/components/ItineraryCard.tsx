@@ -32,7 +32,7 @@ const response=await api.patch(
 
 {
 
-feedback:
+instruction:
 
 feedbacks[day]
 

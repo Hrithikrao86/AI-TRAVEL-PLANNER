@@ -420,7 +420,8 @@ message:"Internal Server Error"
 }
 
 const regenerateDay = async (req,res)=>{
-
+console.log("Regenerate API called");
+console.log(req.body);
 try{
 
 const {tripId,dayNumber}=req.params;
@@ -476,6 +477,8 @@ User wants:
 IMPORTANT:
 
 Generate a COMPLETELY NEW itinerary for ONLY Day ${dayNumber}.
+
+
 
 It MUST be different from the current itinerary.
 
@@ -534,6 +537,8 @@ trip.itinerary[dayIndex]=generatedDay;
 trip.markModified("itinerary");
 
 await trip.save();
+
+
 console.log("Instruction:",instruction);
 
 console.log("Old Day:",currentDay);
