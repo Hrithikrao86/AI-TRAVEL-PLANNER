@@ -1,4 +1,74 @@
-export default function ItineraryCard({ itinerary }: any) {
+"use client";
+
+import {useState} from "react";
+
+import api from "../utils/api";
+
+const [feedback,setFeedback]=useState("");
+
+const [loadingDay,setLoadingDay]=useState<number|null>(null);
+
+const regenerateDay=async(day:number)=>{
+
+try{
+
+setLoadingDay(day);
+
+const token=localStorage.getItem("token");
+
+const response=await api.patch(
+
+`/trips/${tripId}/day/${day}`,
+
+{
+
+feedback
+
+},
+
+{
+
+headers:{
+
+Authorization:
+
+`Bearer ${token}`
+
+}
+
+}
+
+);
+
+setTrip(response.data);
+
+setFeedback("");
+
+}
+
+catch(e){
+
+console.log(e);
+
+}
+
+finally{
+
+setLoadingDay(null);
+
+}
+
+}
+
+export default function ItineraryCard({
+
+itinerary,
+
+tripId,
+
+setTrip
+
+}:any) {
   return (
     <div>
       {itinerary.map((day: any, index: number) => (
@@ -15,6 +85,55 @@ export default function ItineraryCard({ itinerary }: any) {
               <h3 className="text-2xl font-bold">
                 Day {day.day}
               </h3>
+               <div className="flex gap-3 mt-4">
+
+<input
+
+type="text"
+
+placeholder="Ex: Make this day hiking instead of shopping"
+
+value={feedback}
+
+onChange={(e)=>
+
+setFeedback(e.target.value)
+
+}
+
+className="flex-1 p-3 rounded-lg bg-slate-700 border border-slate-600"
+
+/>
+
+<button
+
+onClick={()=>
+
+regenerateDay(day.day)
+
+}
+
+className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg"
+
+>
+
+{
+
+loadingDay===day.day
+
+?
+
+"Regenerating..."
+
+:
+
+"🔄 Regenerate"
+
+}
+
+</button>
+
+</div>
 
               <p className="text-blue-400 font-medium">
                 {day.theme}

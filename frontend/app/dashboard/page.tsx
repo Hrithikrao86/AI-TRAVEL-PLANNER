@@ -279,11 +279,15 @@ title="Delete Trip"
 
           </h2>
 
-          <ItineraryCard
+         <ItineraryCard
 
-            itinerary={selectedTrip.itinerary}
+itinerary={selectedTrip.itinerary}
 
-          />
+tripId={selectedTrip._id}
+
+setTrip={setSelectedTrip}
+
+/>
 
         </div>
 
